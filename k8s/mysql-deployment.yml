@@ -28,10 +28,11 @@ spec:
               value: "admin"
           ports:
             - containerPort: 3306
+          imagePullPolicy: Always
           volumeMounts:
             - name: mysqldata
-              mountPath: /var/lib/mysql         # this is your container path from where your data will be stored
+              mountPath: /var/lib/mysql
       volumes:
         - name: mysqldata
           persistentVolumeClaim:
-            claimName: mysql-pvc    # PVC claim name
+            claimName: mysql-pvc      
